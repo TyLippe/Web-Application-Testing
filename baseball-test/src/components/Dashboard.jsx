@@ -1,4 +1,5 @@
 import React, { useState} from 'react';
+import Display from './Display';
 
 export const addBall = (currentBalls) => {
     if(currentBalls === 4) {
@@ -35,10 +36,7 @@ function Dashboard() {
 
     return(
         <div className='dashboard'>
-            <h1>{balls}</h1>
-            <h2>Balls</h2>
-            <h1>{strikes}</h1>
-            <h2>Strikes</h2>
+            <Display balls={balls} strikes={strikes} />
             <button onClick={() => setBalls(addBall(balls))}>BALL</button>
             <button onClick={() => setStrikes(addStrike(strikes))}>STRIKE</button>
             <button onClick={() => setStrikes(addFoul(strikes))}>FOUL</button>
