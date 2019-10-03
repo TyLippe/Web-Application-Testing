@@ -16,6 +16,19 @@ export const addStrike = (currentStrikes) => {
     }
 }
 
+export const addFoul = (currentStrikes) => {
+    if (currentStrikes === 2) {
+        return currentStrikes + 0;
+    } else {
+        return currentStrikes + 1;
+    }
+}
+
+export const addHit = (currentBalls, currentStrikes) => {
+        currentBalls(0)
+        currentStrikes(0)
+}
+
 function Dashboard() {
     const [balls, setBalls] = useState(0);
     const [strikes, setStrikes] = useState(0);
@@ -23,9 +36,13 @@ function Dashboard() {
     return(
         <div className='dashboard'>
             <h1>{balls}</h1>
+            <h2>Balls</h2>
+            <h1>{strikes}</h1>
+            <h2>Strikes</h2>
             <button onClick={() => setBalls(addBall(balls))}>BALL</button>
-            <h2>{strikes}</h2>
             <button onClick={() => setStrikes(addStrike(strikes))}>STRIKE</button>
+            <button onClick={() => setStrikes(addFoul(strikes))}>FOUL</button>
+            <button onClick={() => addHit(setBalls, setStrikes)}>HIT</button>
         </div>
     )
 }
